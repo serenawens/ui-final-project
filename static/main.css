@@ -408,30 +408,43 @@ a { text-decoration: none; color: inherit; }
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .sym-icon-wrap {
+  width: 100%;
   background: var(--teal);
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
-  padding: 1rem;
+  padding: 1.2rem 0.8rem;
   color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sym-name {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--teal-dark);
-  padding: 0.7rem 0.9rem 0.3rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  width: 100%;
+  margin: 0;
 }
 
 .sym-lines {
   list-style: none;
-  padding: 0 0.9rem 0.9rem;
+  padding: 0 0.5rem 0.8rem;
+  width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 .sym-lines li {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--dark);
   padding: 2px 0;
   border-bottom: 1px solid var(--off-white);
@@ -480,7 +493,7 @@ a { text-decoration: none; color: inherit; }
 
 .temp-icon { font-size: 1.2rem; }
 .temp-badge { margin: 0.5rem 1.1rem 0; font-size: 0.7rem; }
-.temp-body { padding: 0.8rem 1.1rem 1.1rem; font-size: 0.88rem; }
+.temp-body { padding: 0.8rem 1.1rem 1.1rem; font-size: 0.88rem; color: var(--dark); }
 .temp-body p + p { margin-top: 0.5rem; }
 
 .table-tips-layout {
@@ -884,4 +897,168 @@ a { text-decoration: none; color: inherit; }
   .dd-dont-header { display: none; }
   .dd-do-header   { display: none; }
   .table-tips-layout { flex-direction: column; }
+}
+
+.home-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.home-hero {
+  background: linear-gradient(125deg, #e9f8f8 0%, #fdf7eb 100%);
+  border: 1px solid #d6e3e5;
+  border-radius: 18px;
+  padding: 3rem 1.5rem;
+}
+
+.hero-kicker {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: #0d6f75;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.home-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.7rem;
+}
+
+.home-subtitle {
+  max-width: 580px;
+  margin: 0 auto 1.6rem;
+  color: #51696d;
+}
+
+.material-option-card {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #d7e2e5;
+  border-radius: 16px;
+  padding: 1.1rem;
+  min-height: 180px;
+  box-shadow: 0 8px 24px rgba(8, 58, 61, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.material-option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(8, 58, 61, 0.12);
+  border-color: #0f8f96;
+}
+
+.material-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.material-option-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.material-option-card p {
+  color: #5f7378;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.material-cta {
+  color: #0b8188;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.material-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #e4f5f6;
+  color: #0b5f65;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #d7e6e8;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #09a2ab 0%, #0d6f75 100%);
+  transition: width 0.25s ease;
+}
+
+.learn-slides {
+  position: relative;
+  min-height: 520px;
+}
+
+.learn-slide {
+  display: none;
+  animation: slideFade 0.25s ease;
+}
+
+.learn-slide.is-active {
+  display: block;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.learn-panel {
+  background: #ffffff;
+  border: 1px solid #d8e3e6;
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 12px 26px rgba(8, 58, 61, 0.06);
+}
+
+.learn-panel h2 {
+  font-family: var(--font-head);
+  margin-bottom: 0.45rem;
+}
+
+.learn-panel p {
+  color: #5f7378;
+}
+
+.slide-image {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #dde5e8;
+  margin-top: 0.8rem;
+}
+
+.learn-nav {
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 2rem 1rem;
+  }
+
+  .learn-slides {
+    min-height: 0;
+  }
 }
