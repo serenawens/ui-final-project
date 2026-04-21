@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+{% block title %}Learn {{ page_num }} — Clothing Care{% endblock %}
+
+{% block content %}
+<div class="learn-shell">
+
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" style="width: {{ (page_num / total * 100)|int }}%"></div>
+  </div>
+  <p class="progress-label">Lesson {{ page_num }} of {{ total }}</p>
+
+  <div class="page-header">
+    <h2 class="page-title">{{ page.title }}</h2>
+    <p class="page-sub">{{ page.subtitle }}</p>
+  </div>
+
+  {% if page.type == "selector" %}
+  <div class="fabric-grid" id="fabricGrid">
+    {% for fabric in page.fabrics %}
+    <div
+      class="fabric-card"
+      data-fabric="{{ fabric.id }}"
+      style="--card-color: {{ fabric.color }}"
+      onclick="selectFabric(this)"
+    >
+      <div class="fabric-icon">{{ fabric.icon }}</div>
+      <h3>{{ fabric.label }}</h3>
+      <p>{{ fabric.examples }}</p>
+      <div class="tap-hint">TAP →</div>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="selector-note">Tap a card to record your selection, then continue.</p>
+
+  {% elif page.type == "symbols" %}
+  <div class="symbols-grid">
+    {% for sym in page.symbols %}
+    <div class="symbol-card">
+      <div class="sym-icon-wrap">{{ sym.icon }}</div>
+      <h4 class="sym-name">{{ sym.name }}</h4>
+      <ul class="sym-lines">
+        {% for line in sym.lines %}
+        <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="tip-box">
+    <span class="tip-icon">⚠️</span>
+    <span>{{ page.tip }}</span>
+  </div>
+
+  {% elif page.type == "temp_cards" %}
+  <div class="temp-cards-row">
+    {% for card in page.cards %}
+    <div class="temp-card temp-card--{{ loop.index }}">
+      <div class="temp-card-header">
+        <span class="temp-icon">{{ card.icon }}</span>
+        <span class="temp-label">{{ card.temp }}</span>
+      </div>
+      {% if card.badge %}
+      <span class="badge bg-{{ card.badge_color }} temp-badge">{{ card.badge }}</span>
+      {% endif %}
+      <div class="temp-body">
+        <p><strong>When:</strong> {{ card.when }}</p>
+        <p><strong>Why:</strong> {{ card.why }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% elif page.type == "table_tips" %}
+  <div class="table-tips-layout">
+    <div class="table-wrap">
+      <table class="dryer-table">
+        <thead>
+          <tr><th>Setting</th><th>Best For</th><th>Shrink Risk</th></tr>
+        </thead>
+        <tbody>
+          {% for row in page.rows %}
+          <tr>
+            <td><strong>{{ row.setting }}</strong></td>
+            <td>{{ row.best_for }}</td>
+            <td><span class="risk-badge risk-{{ row.risk_color }}">{{ row.risk }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="tips-box">
+      <h4>💡 Pro Tips</h4>
+      <ul>
+        {% for tip in page.tips %}
+        <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  {% elif page.type == "two_col" %}
+  <div class="two-col-layout">
+    <div class="two-col-panel washer-panel">
+      <h3>🫧 Washer</h3>
+      <ul>
+        {% for item in page.washer %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="two-col-panel dryer-panel">
+      <h3>🌀 Dryer</h3>
+      <ul>
+        {% for item in page.dryer %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  {% elif page.type == "dos_donts" %}
+  <div class="dos-donts-table">
+    <div class="dd-header dd-dont-header">❌ DON'T</div>
+    <div class="dd-header dd-do-header">✅ DO THIS INSTEAD</div>
+    {% for row in page.rows %}
+    <div class="dd-cell dd-dont">{{ row.dont }}</div>
+    <div class="dd-cell dd-do">{{ row.do }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Navigation -->
+  <div class="learn-nav">
+    {% if prev_url %}
+    <a href="{{ prev_url }}" class="btn-nav btn-nav--back">← Back</a>
+    {% else %}
+    <span></span>
+    {% endif %}
+
+    {% if is_last %}
+    <a href="{{ url_for('quiz', question_num=1) }}" class="btn-nav btn-nav--next btn-nav--quiz">
+      Start Quiz →
+    </a>
+    {% else %}
+    <a href="{{ next_url }}" class="btn-nav btn-nav--next">Next →</a>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function selectFabric(el) {
+  const fabric = el.dataset.fabric;
+  document.querySelectorAll(".fabric-card").forEach(c => c.classList.remove("selected"));
+  el.classList.add("selected");
+
+  $.ajax({
+    url: "{{ url_for('fabric_select') }}",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({ fabric: fabric }),
+  });
+}
+</script>
+{% endblock %}
