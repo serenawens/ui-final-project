@@ -1,14 +1,80 @@
 (function () {
-  function getGitUser() {
-    return localStorage.getItem("gituser") || "";
+  const UNI_KEY = "uni";
+  const SCORE_KEY = "quizScoreState";
+  const VISITED_MATERIALS_KEY = "visitedMaterials";
+
+  function getUni() {
+    return localStorage.getItem(UNI_KEY) || "";
   }
 
-  function setGitUser(gituser) {
-    localStorage.setItem("gituser", gituser);
+  function setUni(uni) {
+    localStorage.setItem(UNI_KEY, uni);
+  }
+
+  function getVisitedMaterials() {
+    const raw = localStorage.getItem(VISITED_MATERIALS_KEY);
+    if (!raw) return [];
+    try {
+      return JSON.parse(raw);
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function setVisitedMaterials(materials) {
+    localStorage.setItem(VISITED_MATERIALS_KEY, JSON.stringify(materials));
+  }
+
+  function addVisitedMaterial(materialId) {
+    const visited = getVisitedMaterials();
+    if (!visited.includes(materialId)) {
+      visited.push(materialId);
+      setVisitedMaterials(visited);
+    }
+    return visited;
+  }
+
+  function requireUni(onReady) {
+    const existing = getUni();
+    if (existing) {
+      onReady(existing);
+      return;
+    }
+
+    const modalEl = document.getElementById("uniModal");
+    if (!modalEl) {
+      onReady("");
+      return;
+    }
+
+    const uniModal = new bootstrap.Modal(modalEl);
+    uniModal.show();
+
+    $("#saveUniBtn")
+      .off("click")
+      .on("click", function () {
+        const value = ($("#uniInput").val() || "").trim();
+        if (!value) {
+          alert("Please enter your UNI.");
+          return;
+        }
+        setUni(value);
+        uniModal.hide();
+        onReady(value);
+      });
+  }
+
+  function logActivity(url, payload) {
+    return $.ajax({
+      url: url,
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(payload),
+    });
   }
 
   function getScoreState() {
-    const raw = localStorage.getItem("quizScoreState");
+    const raw = localStorage.getItem(SCORE_KEY);
     if (!raw) return { correct: 0, total: 0 };
     try {
       return JSON.parse(raw);
@@ -18,46 +84,137 @@
   }
 
   function setScoreState(state) {
-    localStorage.setItem("quizScoreState", JSON.stringify(state));
+    localStorage.setItem(SCORE_KEY, JSON.stringify(state));
   }
 
   function resetScoreState() {
     setScoreState({ correct: 0, total: 0 });
   }
 
-  function saveGitUserFromHome() {
-    const value = ($("#gituserInput").val() || "").trim();
-    if (value) setGitUser(value);
-    return value || getGitUser();
+  function attachHomeHandlers() {
+    // Reset care label first-seen tracker on home page load
+    localStorage.removeItem("careLabelFirstSeen");
+    localStorage.removeItem(VISITED_MATERIALS_KEY);
+
+    $("#startLearningBtn").on("click", function () {
+      requireUni(function () {
+        $("#materialPicker").removeClass("d-none");
+        $("#materialPicker")[0].scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    $(".material-option-card").on("click", function () {
+      const materialId = $(this).data("material-id");
+      const uni = getUni();
+      if (materialId) {
+        logActivity("/api/activity/learn-selection", {
+          uni: uni,
+          material_id: String(materialId),
+        });
+      }
+    });
   }
 
-  function attachHomeHandlers() {
-    const existingGitUser = getGitUser();
-    if (existingGitUser) {
-      $("#gituserInput").val(existingGitUser);
+  function setupLearnSlides() {
+    const section = $("section[data-page-type='learn-material']");
+    const materialId = String(section.data("material-id") || "");
+    const slides = $("#learnSlides .learn-slide");
+    let activeIndex = 0;
+    const CARE_LABEL_FIRST_SEEN_KEY = "careLabelFirstSeen";
+
+    addVisitedMaterial(materialId);
+    logActivity("/api/activity/learn-visit", {
+      uni: getUni(),
+      material_id: materialId,
+    });
+
+    function updateNextMaterialPanel() {
+      const visited = getVisitedMaterials();
+      let remainingCount = 0;
+
+      // Hide already-visited materials while there are still new ones left.
+      $("#nextMaterialGrid .material-option-card").each(function () {
+        const cardMaterialId = String($(this).data("material-id") || "");
+        if (visited.includes(cardMaterialId)) {
+          $(this).closest(".col-md-6").addClass("d-none");
+        } else {
+          $(this).closest(".col-md-6").removeClass("d-none");
+          remainingCount += 1;
+        }
+      });
+
+      // Once all are completed, show everything again for optional review.
+      if (remainingCount === 0) {
+        $("#nextMaterialGrid .material-option-card").each(function () {
+          $(this).closest(".col-md-6").removeClass("d-none");
+        });
+        $("#nextMaterialTitle").text("All Materials Completed");
+        $("#nextMaterialSubtitle").text("You can review any material again, or proceed to the quiz.");
+        $("#nextMaterialGrid").removeClass("d-none");
+        $("#finalQuizPanel").removeClass("d-none");
+      } else {
+        $("#nextMaterialTitle").text("Choose the Next Material");
+        $("#nextMaterialSubtitle").text("Keep going until you finish every material.");
+        $("#nextMaterialGrid").removeClass("d-none");
+        $("#finalQuizPanel").addClass("d-none");
+      }
     }
 
-    $("#startQuizBtn").on("click", function (e) {
-      const gituser = saveGitUserFromHome();
-      if (!gituser) {
-        e.preventDefault();
-        alert("Please enter your gituser first.");
-        return;
-      }
-      resetScoreState();
-    });
-  }
+    function renderSlide() {
+      slides.removeClass("is-active").eq(activeIndex).addClass("is-active");
+      const progress = ((activeIndex + 1) / slides.length) * 100;
+      $("#learnProgressBar").css("width", progress + "%");
+      $("#learnPrevBtn").prop("disabled", activeIndex === 0);
 
-  function logLearnVisit(pageId) {
-    $.ajax({
-      url: "/api/activity/learn-visit",
-      method: "POST",
-      contentType: "application/json",
-      data: JSON.stringify({
-        gituser: getGitUser(),
-        page_id: Number(pageId),
-      }),
+      const isLast = activeIndex === slides.length - 1;
+      $("#learnNextBtn").toggle(!isLast);
+      const stepId = slides.eq(activeIndex).data("step-id");
+      
+      // Update care-label heading: first time vs. repeat visits
+      if (String(stepId) === "care-label") {
+        const hasSeenCareLabelBefore = localStorage.getItem(CARE_LABEL_FIRST_SEEN_KEY);
+        if (!hasSeenCareLabelBefore) {
+          $("#careLabelHeading").text("How to Read a Care Label");
+          localStorage.setItem(CARE_LABEL_FIRST_SEEN_KEY, "true");
+        } else {
+          $("#careLabelHeading").text("Let's do a quick review on what these mean");
+        }
+      }
+      
+      logActivity("/api/activity/learn-step", {
+        uni: getUni(),
+        material_id: materialId,
+        step_id: String(stepId || "unknown"),
+      });
+
+      if (String(stepId) === "next-material") {
+        updateNextMaterialPanel();
+      }
+    }
+
+    $("#learnPrevBtn").on("click", function () {
+      if (activeIndex > 0) {
+        activeIndex -= 1;
+        renderSlide();
+      }
     });
+
+    $("#learnNextBtn").on("click", function () {
+      if (activeIndex < slides.length - 1) {
+        activeIndex += 1;
+        renderSlide();
+      }
+    });
+
+    $("#nextMaterialGrid .material-option-card").on("click", function () {
+      const selectedMaterial = $(this).data("material-id");
+      logActivity("/api/activity/learn-selection", {
+        uni: getUni(),
+        material_id: String(selectedMaterial),
+      });
+    });
+
+    renderSlide();
   }
 
   function renderProgressDots(current, total) {
@@ -70,6 +227,20 @@
       html += '<span class="progress-dot ' + stateClass + '"></span>';
     }
     $("#progressDots").html(html);
+  }
+
+  function attachQuizHomeHandlers() {
+    const existingUni = getUni();
+
+    $("#startQuizBtn").on("click", function (e) {
+      const uni = existingUni;
+      if (!uni) {
+        e.preventDefault();
+        alert("Please start from the home page to enter your UNI.");
+        return;
+      }
+      resetScoreState();
+    });
   }
 
   function attachQuizPage(questionId) {
@@ -122,7 +293,7 @@
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({
-        gituser: getGitUser(),
+        uni: getUni(),
         question_id: question.id,
         selected_choice: selectedChoice,
       }),
@@ -170,10 +341,17 @@
   }
 
   $(function () {
+    $("main").css("opacity", 0).animate({ opacity: 1 }, 250);
+
     const pageType = $("section[data-page-type]").data("page-type");
-    if (pageType === "learn") {
-      const pageId = $("section[data-page-id]").data("page-id");
-      logLearnVisit(pageId);
+
+    if (pageType === "home") {
+      attachHomeHandlers();
+      return;
+    }
+
+    if (pageType === "learn-material") {
+      setupLearnSlides();
       return;
     }
 
@@ -188,20 +366,6 @@
       return;
     }
 
-    attachHomeHandlers();
+    attachQuizHomeHandlers();
   });
 })();
-$(document).ready(function () {
- 
-  // Smooth fade-in on page load
-  $("main").css("opacity", 0).animate({ opacity: 1 }, 300);
- 
-  // Highlight active nav link
-  const path = window.location.pathname;
-  $(".nav-links a").each(function () {
-    if (path.startsWith($(this).attr("href"))) {
-      $(this).addClass("active");
-    }
-  });
- 
-});

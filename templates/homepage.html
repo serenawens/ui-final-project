@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - Laundry Care Coach{% endblock %}
+
+{% block content %}
+<section class="home-shell" data-page-type="home">
+	<div class="home-hero text-center">
+		<p class="hero-kicker">Interactive Learning Journey</p>
+		<h1 class="home-title">Master Laundry Care by Material</h1>
+		<p class="home-subtitle">
+			Start with any material, learn with visual cards, and then head into your quiz.
+		</p>
+		<button id="startLearningBtn" class="btn btn-primary btn-lg px-5">Start</button>
+	</div>
+
+	<div id="materialPicker" class="d-none mt-4">
+		<div class="text-center mb-4">
+			<h2 class="fw-bold">Choose a Material</h2>
+			<p class="text-secondary mb-0">You can choose any option. You will be able to return for others.</p>
+		</div>
+
+		<div class="row g-3">
+			{% for category in categories %}
+			<div class="col-md-6 col-lg-3">
+				<a
+					class="material-option-card"
+					href="{{ url_for('learn_material', material_id=category.id) }}"
+					data-material-id="{{ category.id }}"
+				>
+					<div class="material-emoji">{{ category.emoji }}</div>
+					<h3>{{ category.name }}</h3>
+					<p>{{ category.examples }}</p>
+					<span class="material-cta">Open Learning Path</span>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="modal fade" id="uniModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header border-0">
+					<h5 class="modal-title fw-bold">Enter Your UNI</h5>
+				</div>
+				<div class="modal-body">
+					<label for="uniInput" class="form-label">UNI</label>
+					<input id="uniInput" class="form-control" type="text" placeholder="e.g. ml9999" maxlength="20" />
+					<p class="small text-secondary mt-2 mb-0">We use this to associate learning and quiz activity logs.</p>
+				</div>
+				<div class="modal-footer border-0">
+					<button id="saveUniBtn" class="btn btn-primary">Continue</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
