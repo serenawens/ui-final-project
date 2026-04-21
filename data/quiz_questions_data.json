@@ -4,7 +4,7 @@
       "id": 1,
       "category": "cotton",
       "question": "A cotton shirt has this care label. What should you do to protect its color",
-      "care_tag_image": "/static/images/care_tags/cotton_cold_no_bleach_low.png",
+      "care_tag_image": "/static/images/care_tags/cold_no_bleach.png",
       "choices": [
         { "id": "A", "text": "Wash in hot water" },
         { "id": "B", "text": "Wash in cold water" },
@@ -148,7 +148,7 @@
       "id": 9,
       "category": "synthetics",
       "question": "A synthetic shirt label shows cold wash and no bleach. What should you do",
-      "care_tag_image": "/static/images/care_tags/synthetic_cold_no_bleach.png",
+      "care_tag_image": "/static/images/care_tags/cold_no_bleach.png",
       "choices": [
         { "id": "A", "text": "Hot wash with bleach" },
         { "id": "B", "text": "Cold wash without bleach" },
