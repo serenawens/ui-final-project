@@ -1,0 +1,28 @@
+{% extends "quiz_layout.html" %}
+
+{% block content %}
+<section class="quiz-shell" data-page-type="quiz" data-question-id="{{ question_id }}">
+  <div class="text-center mb-4">
+    <p class="text-muted fw-semibold mb-2" id="quizProgressText">Quiz</p>
+    <div id="progressDots" class="mb-3"></div>
+    <h2 class="fw-bold" id="questionText">Loading question...</h2>
+  </div>
+
+  <div class="card mx-auto mb-4 care-card" id="careTagCard">
+    <div class="card-body">
+      <p class="text-muted mb-2">Care Tag</p>
+      <img id="careTagImage" alt="Care tag visual" class="img-fluid d-none" />
+    </div>
+  </div>
+
+  <div id="choicesContainer" class="row g-3"></div>
+
+  <div id="feedbackPanel" class="card mt-4 d-none">
+    <div class="card-body text-center">
+      <h3 id="feedbackHeading" class="fw-bold mb-3"></h3>
+      <p id="feedbackText" class="mb-3"></p>
+      <button id="nextQuestionBtn" class="btn btn-primary">Next Question</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

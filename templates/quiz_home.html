@@ -1,0 +1,24 @@
+{% extends "quiz_layout.html" %}
+
+{% block content %}
+<section class="text-center py-5">
+  <h1 class="display-5 fw-bold mb-3">Let's Test What You Learned!</h1>
+  <p class="lead text-secondary mb-4">Enter your GitHub username, then start quiz.</p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <label for="gituserInput" class="form-label fw-semibold">GitHub Username</label>
+      <input
+        id="gituserInput"
+        class="form-control form-control-lg mb-3"
+        type="text"
+        placeholder="e.g. SW3735"
+      />
+
+      <div class="d-grid">
+        <a id="startQuizBtn" class="btn btn-success btn-lg" href="/quiz/question/1">Start Quiz</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
