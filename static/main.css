@@ -1,4 +1,3 @@
-/* ── Variables ─────────────────────────────────────────────────────────────── */
 :root {
   --teal:        #007B83;
   --teal-dark:   #005F65;
@@ -19,7 +18,6 @@
   --shadow-lg:   0 8px 32px rgba(0,0,0,0.12);
 }
 
-/* ── Reset & Base ──────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -32,7 +30,6 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ── Nav ───────────────────────────────────────────────────────────────────── */
 .site-nav {
   background: var(--teal-dark);
   padding: 0 2rem;
@@ -67,7 +64,6 @@ a { text-decoration: none; color: inherit; }
 
 .nav-links a:hover { color: var(--white); }
 
-/* ── Homepage ──────────────────────────────────────────────────────────────── */
 .hero {
   display: flex;
   align-items: center;
@@ -188,7 +184,6 @@ a { text-decoration: none; color: inherit; }
   50%       { transform: translateY(-8px); }
 }
 
-/* How it works */
 .how-it-works {
   padding: 3rem 5vw 4rem;
   background: var(--white);
@@ -240,14 +235,12 @@ a { text-decoration: none; color: inherit; }
 .step-card p { font-size: 0.85rem; color: var(--gray); }
 .step-arrow { font-size: 1.5rem; color: var(--light-gray); }
 
-/* ── Learn shell ───────────────────────────────────────────────────────────── */
 .learn-shell {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
 
-/* Progress */
 .progress-bar-wrap {
   height: 6px;
   background: var(--light-gray);
@@ -270,7 +263,6 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 1.8rem;
 }
 
-/* Page header */
 .page-header { margin-bottom: 2rem; }
 .page-title {
   font-family: var(--font-head);
@@ -280,7 +272,6 @@ a { text-decoration: none; color: inherit; }
 }
 .page-sub { color: var(--gray); font-size: 1rem; }
 
-/* ── Fabric selector ────────────────────────────────────────────────────────── */
 .fabric-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -326,7 +317,6 @@ a { text-decoration: none; color: inherit; }
   margin-top: 0.5rem;
 }
 
-/* ── Symbols ───────────────────────────────────────────────────────────────── */
 .symbols-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -382,7 +372,6 @@ a { text-decoration: none; color: inherit; }
 
 .tip-icon { font-size: 1.1rem; flex-shrink: 0; }
 
-/* ── Temp cards ────────────────────────────────────────────────────────────── */
 .temp-cards-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -415,7 +404,6 @@ a { text-decoration: none; color: inherit; }
 .temp-body { padding: 0.8rem 1.1rem 1.1rem; font-size: 0.88rem; }
 .temp-body p + p { margin-top: 0.5rem; }
 
-/* ── Table + tips ──────────────────────────────────────────────────────────── */
 .table-tips-layout {
   display: flex;
   gap: 1.5rem;
@@ -473,7 +461,6 @@ a { text-decoration: none; color: inherit; }
 }
 .tips-box li::before { content: "→"; position: absolute; left: 0; color: var(--amber); }
 
-/* ── Two col ───────────────────────────────────────────────────────────────── */
 .two-col-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -507,7 +494,6 @@ a { text-decoration: none; color: inherit; }
   font-size: 1.1rem;
 }
 
-/* ── Dos & Don'ts ──────────────────────────────────────────────────────────── */
 .dos-donts-table {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -542,7 +528,6 @@ a { text-decoration: none; color: inherit; }
 .dd-do { background: #f3faf4; color: var(--dark); }
 .dd-do::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
 
-/* ── Nav buttons ───────────────────────────────────────────────────────────── */
 .learn-nav {
   display: flex;
   justify-content: space-between;
@@ -588,7 +573,6 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-nav--quiz:hover { background: #2d6336; }
 
-/* ── Quiz ──────────────────────────────────────────────────────────────────── */
 .quiz-shell {
   max-width: 720px;
   margin: 0 auto;
@@ -644,7 +628,6 @@ a { text-decoration: none; color: inherit; }
   font-family: monospace;
 }
 
-/* Options */
 .options-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -692,7 +675,6 @@ a { text-decoration: none; color: inherit; }
 
 .option-text { line-height: 1.4; }
 
-/* Answer states */
 .option-correct {
   border-color: var(--green) !important;
   background: #f0faf1 !important;
@@ -711,7 +693,6 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
 }
 
-/* Feedback */
 .feedback-box {
   margin-bottom: 1.2rem;
   border-radius: var(--radius);
@@ -736,7 +717,6 @@ a { text-decoration: none; color: inherit; }
 
 .feedback-explanation { font-size: 0.9rem; color: var(--dark); }
 
-/* ── Results ───────────────────────────────────────────────────────────────── */
 .results-shell {
   max-width: 720px;
   margin: 0 auto;
@@ -815,7 +795,6 @@ a { text-decoration: none; color: inherit; }
   justify-content: space-between;
 }
 
-/* ── Responsive ────────────────────────────────────────────────────────────── */
 @media (max-width: 680px) {
   .hero { flex-direction: column; padding: 2rem 1.2rem; }
   .hero-visual { display: none; }
