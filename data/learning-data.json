@@ -1,1 +1,235 @@
+{
+  "categories": [
+    { "id": "cotton",     "name": "Cotton",     "emoji": "🧵", "examples": "T-shirts, jeans, towels" },
+    { "id": "wool",       "name": "Wool",       "emoji": "🧶", "examples": "Sweaters, blankets" },
+    { "id": "synthetics", "name": "Synthetics", "emoji": "⚗️", "examples": "Polyester, nylon, spandex", "isNew": true },
+    { "id": "delicates",  "name": "Delicates",  "emoji": "🌸", "examples": "Silk, lace, lingerie",      "isNew": true }
+  ],
 
+  "washer_settings": {
+    "cotton": {
+      "cold": {
+        "label": "Cold (60–80°F)",
+        "badge": "RECOMMENDED",
+        "when": "Dark colors, bright dyes, lightly soiled items",
+        "why": "Prevents bleeding & fading. Saves energy!"
+      },
+      "warm": {
+        "label": "Warm (90–110°F)",
+        "badge": null,
+        "when": "Moderately soiled cotton, permanent press",
+        "why": "Balances cleaning with minimal shrinkage"
+      },
+      "hot": {
+        "label": "Hot (120°F+)",
+        "badge": "HIGH RISK",
+        "when": "Heavily soiled whites, towels, bedsheets",
+        "why": "Best cleaning but HIGH shrink/fade risk"
+      }
+    },
+    "wool": {
+      "cold": {
+        "label": "Cold (60–80°F)",
+        "badge": "RECOMMENDED",
+        "when": "All wool items — especially hand-knit or loosely woven pieces",
+        "why": "Cold water prevents felting and fiber shrinkage"
+      },
+      "warm": {
+        "label": "Warm (90–110°F)",
+        "badge": "AVOID",
+        "when": "Almost never — only if label explicitly says warm is safe",
+        "why": "Warm water begins to felt wool fibers together permanently"
+      },
+      "hot": {
+        "label": "Hot (120°F+)",
+        "badge": "NEVER",
+        "when": "Never — hot water will ruin wool irreversibly",
+        "why": "Causes severe felting, shrinkage, and fiber damage"
+      }
+    },
+    "synthetics": {
+      "cold": {
+        "label": "Cold (60–80°F)",
+        "badge": "RECOMMENDED",
+        "when": "All synthetics — especially activewear & spandex",
+        "why": "Prevents heat warping, fiber damage, and static buildup"
+      },
+      "warm": {
+        "label": "Warm (90–110°F)",
+        "badge": null,
+        "when": "Moderately soiled polyester shirts or pants",
+        "why": "OK for sturdy synthetics; check the label first"
+      },
+      "hot": {
+        "label": "Hot (120°F+)",
+        "badge": "AVOID",
+        "when": "Almost never — only if label explicitly allows",
+        "why": "High heat melts synthetic fibers, causes permanent damage"
+      }
+    },
+    "delicates": {
+      "cold": {
+        "label": "Hand Wash",
+        "badge": "SAFEST OPTION",
+        "when": "Silk, lace, lingerie, any item labeled 'hand wash'",
+        "why": "Gentlest method — zero agitation risk"
+      },
+      "warm": {
+        "label": "Delicate Cycle (Cold)",
+        "badge": "GOOD OPTION",
+        "when": "Sturdy delicates in a mesh laundry bag",
+        "why": "Low agitation + cold water = safe for most delicates"
+      },
+      "hot": {
+        "label": "Warm / Hot Water",
+        "badge": "AVOID",
+        "when": "Almost never — check label carefully",
+        "why": "Heat shrinks silk, distorts lace, ruins elastics"
+      }
+    }
+  },
+
+  "dryer_settings": [
+    {
+      "id": "cotton",
+      "settings": [
+        { "setting": "Low Heat",          "best_for": "Delicate cottons, dark colors",          "shrink_risk": 1 },
+        { "setting": "Medium Heat",       "best_for": "Regular cottons, mixed loads",            "shrink_risk": 2 },
+        { "setting": "High Heat",         "best_for": "Heavy items: towels, jeans",              "shrink_risk": 3 },
+        { "setting": "Air Dry / No Heat", "best_for": "Best for all cotton — no risk",           "shrink_risk": 0 }
+      ]
+    },
+    {
+      "id": "wool",
+      "settings": [
+        { "setting": "Low Heat",          "best_for": "Never recommended — low heat still risks felting", "shrink_risk": 3 },
+        { "setting": "Medium Heat",       "best_for": "Never — causes irreversible felting and shrink",   "shrink_risk": 3 },
+        { "setting": "High Heat",         "best_for": "Never — destroys wool permanently",                "shrink_risk": 3 },
+        { "setting": "Air Dry Flat",      "best_for": "Always — lay flat on a towel to preserve shape",  "shrink_risk": 0 }
+      ]
+    },
+    {
+      "id": "synthetics",
+      "settings": [
+        { "setting": "Low Heat",          "best_for": "All synthetics — standard choice",              "shrink_risk": 1 },
+        { "setting": "Medium Heat",       "best_for": "Heavier polyester (avoid spandex!)",            "shrink_risk": 2 },
+        { "setting": "High Heat",         "best_for": "NEVER for synthetics",                          "shrink_risk": 3 },
+        { "setting": "Air Dry / No Heat", "best_for": "Best for spandex, delicate synthetics",         "shrink_risk": 0 }
+      ]
+    },
+    {
+      "id": "delicates",
+      "settings": [
+        { "setting": "Air Dry Flat",      "best_for": "Silk, lace, any stretchy delicate. Preserves shape.",                  "shrink_risk": 0 },
+        { "setting": "Hang Dry",          "best_for": "Silk blouses. Avoid for heavy items — stretches them.",                "shrink_risk": 0 },
+        { "setting": "Low Heat Tumble",   "best_for": "Only if label explicitly allows. Use a mesh bag. Remove immediately.", "shrink_risk": 2 },
+        { "setting": "High Heat Tumble",  "best_for": "NEVER — destroys lace, elastic, and silk permanently.",                "shrink_risk": 3 }
+      ]
+    }
+  ],
+
+  "pro_tips": [
+    {
+      "id": "cotton",
+      "tips": [
+        "Remove while slightly damp to reduce wrinkles",
+        "Avoid over-drying — causes fiber damage",
+        "Jeans last longer when air-dried",
+        "Whites can yellow in high heat over time"
+      ]
+    },
+    {
+      "id": "wool",
+      "tips": [
+        "Always use a wool-safe or delicate detergent — no regular detergent",
+        "Never wring or twist wet wool — press gently in a towel",
+        "Lay flat to dry to preserve the original shape",
+        "Store folded, never hung — hanging stretches the shoulders",
+        "Hand wash is always safer than any machine cycle"
+      ]
+    },
+    {
+      "id": "synthetics",
+      "tips": [
+        "Wash activewear inside-out to protect wicking",
+        "Skip fabric softener — blocks moisture-wicking",
+        "Add a dryer sheet to fight static cling",
+        "Nylon & spandex: always air dry if possible",
+        "Pilling? Use a mesh laundry bag next time"
+      ]
+    },
+    {
+      "id": "delicates",
+      "tips": [
+        "Always use a mesh laundry bag when machine washing",
+        "Never wring or twist — press gently in a clean towel to remove water",
+        "Use a detergent formulated for delicates or silk",
+        "Air dry flat on a towel — never hang stretchy delicates",
+        "Silk blouses can be hung on a padded hanger to dry"
+      ]
+    }
+  ],
+
+  "common_mistakes": [
+    { "id": 1, "dont": "Hot water for colored cotton",   "do": "Use cold — prevents dye bleeding" },
+    { "id": 2, "dont": "Overstuff the washing machine",  "do": "Fill ¾ full for best clean" },
+    { "id": 3, "dont": "Leave wet laundry sitting",      "do": "Move to dryer within 30 mins" },
+    { "id": 4, "dont": "Use too much detergent",         "do": "Follow the cap's fill line" },
+    { "id": 5, "dont": "Dry everything on high heat",    "do": "Check the label — use medium or low" }
+  ],
+
+  "care_label_symbols": [
+    {
+      "id": "washing",
+      "symbol": "tub",
+      "rules": [
+        "Tub = machine wash",
+        "Dots = temperature",
+        "1 dot = cold",
+        "3 dots = hot",
+        "Hand = hand wash"
+      ]
+    },
+    {
+      "id": "bleaching",
+      "symbol": "triangle",
+      "rules": [
+        "Triangle = bleach OK",
+        "Filled = any bleach",
+        "Empty = non-chlorine only",
+        "X = no bleach"
+      ]
+    },
+    {
+      "id": "drying",
+      "symbol": "square",
+      "rules": [
+        "Square = tumble dry",
+        "Dots = heat level",
+        "1 dot = low heat",
+        "3 dots = high heat",
+        "Line = lay flat"
+      ]
+    },
+    {
+      "id": "ironing",
+      "symbol": "iron",
+      "rules": [
+        "Iron = can iron",
+        "Dots = temp levels",
+        "X = do not iron",
+        "Lines = steam OK"
+      ]
+    },
+    {
+      "id": "dry_clean",
+      "symbol": "circle",
+      "rules": [
+        "Circle = dry clean",
+        "Letters = solvent type",
+        "X = do NOT dry clean",
+        "P = perc safe"
+      ]
+    }
+  ]
+}
