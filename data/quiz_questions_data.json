@@ -3,7 +3,7 @@
     {
       "id": 1,
       "category": "cotton",
-      "question": "A cotton shirt has this care label. What should you do to protect its color",
+      "question": "A cotton shirt has this care label. What should you do to protect its color?",
       "care_tag_image": "/static/images/care_tags/cold_no_bleach.png",
       "choices": [
         { "id": "A", "text": "Wash in hot water" },
@@ -21,7 +21,7 @@
     {
       "id": 2,
       "category": "cotton",
-      "question": "A care label allows tumble dry with one dot. How should you dry this cotton item",
+      "question": "Following this care label, how should you dry this cotton item?",
       "care_tag_image": "/static/images/care_tags/dryer_one_dot.png",
       "choices": [
         { "id": "A", "text": "High heat drying" },
@@ -57,7 +57,7 @@
     {
       "id": 4,
       "category": "cotton",
-      "question": "A care label shows no bleach. What should you avoid",
+      "question": "A care label shows this label. What should you avoid?",
       "care_tag_image": "/static/images/care_tags/no_bleach.png",
       "choices": [
         { "id": "A", "text": "Cold water" },
@@ -75,7 +75,7 @@
     {
       "id": 5,
       "category": "wool",
-      "question": "A wool sweater shows a hand wash symbol. What should you do",
+      "question": "A wool sweater shows this symbol. What should you do?",
       "care_tag_image": "/static/images/care_tags/hand_wash.png",
       "choices": [
         { "id": "A", "text": "Machine wash normally" },
@@ -111,7 +111,7 @@
     {
       "id": 7,
       "category": "wool",
-      "question": "A wool item shows do not tumble dry. What should you do instead",
+      "question": "A wool item shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/no_tumble.png",
       "choices": [
         { "id": "A", "text": "Use low heat dryer" },
@@ -147,7 +147,7 @@
     {
       "id": 9,
       "category": "synthetics",
-      "question": "A synthetic shirt label shows cold wash and no bleach. What should you do",
+      "question": "A synthetic shirt label shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/cold_no_bleach.png",
       "choices": [
         { "id": "A", "text": "Hot wash with bleach" },
@@ -183,7 +183,7 @@
     {
       "id": 11,
       "category": "synthetics",
-      "question": "A care label shows do not tumble dry. What should you do",
+      "question": "A care label shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/no_tumble.png",
       "choices": [
         { "id": "A", "text": "Dry on low heat" },
@@ -201,7 +201,7 @@
     {
       "id": 12,
       "category": "synthetics",
-      "question": "A care label allows warm wash. When should you use it",
+      "question": "A care label allows warm wash. When should you use it?",
       "care_tag_image": "/static/images/care_tags/tub_two_dots.png",
       "choices": [
         { "id": "A", "text": "For all clothing" },
@@ -219,7 +219,7 @@
     {
       "id": 13,
       "category": "delicates",
-      "question": "A silk blouse label shows dry clean only. What should you do",
+      "question": "A silk blouse label shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/dry_clean_only.png",
       "choices": [
         { "id": "A", "text": "Hand wash" },
@@ -237,7 +237,7 @@
     {
       "id": 14,
       "category": "delicates",
-      "question": "A delicate item shows hand wash and no heat drying. What should you do",
+      "question": "A delicate item shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/delicate_no_heat.png",
       "choices": [
         { "id": "A", "text": "Hand wash and air dry" },
@@ -273,7 +273,7 @@
     {
       "id": 16,
       "category": "delicates",
-      "question": "A label shows no bleach for silk. What should you avoid",
+      "question": "A label for silk. What should you avoid?",
       "care_tag_image": "/static/images/care_tags/no_bleach.png",
       "choices": [
         { "id": "A", "text": "Cold water" },
@@ -291,7 +291,7 @@
     {
       "id": 17,
       "category": "delicates",
-      "question": "A care label shows do not wash. What is the correct action",
+      "question": "What is the correct action based on this care label?",
       "care_tag_image": "/static/images/care_tags/no_wash.png",
       "choices": [
         { "id": "A", "text": "Machine wash cold" },
@@ -309,7 +309,7 @@
     {
       "id": 18,
       "category": "cotton",
-      "question": "A cotton item shows medium heat drying. What should you do",
+      "question": "A cotton item shows this label. What should you do?",
       "care_tag_image": "/static/images/care_tags/dryer_two_dots.png",
       "choices": [
         { "id": "A", "text": "Use medium heat dryer" },
@@ -327,7 +327,7 @@
     {
       "id": 19,
       "category": "synthetics",
-      "question": "A synthetic label shows cold wash and low heat dry. Why follow both",
+      "question": "A synthetic label shows cold wash and low heat dry. Why follow both?",
       "care_tag_image": "/static/images/care_tags/cold_low_combo.png",
       "choices": [
         { "id": "A", "text": "To clean faster" },
