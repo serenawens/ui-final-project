@@ -1,0 +1,364 @@
+{
+  "quiz": [
+    {
+      "id": 1,
+      "category": "cotton",
+      "question": "A cotton shirt has this care label. What should you do to protect its color",
+      "care_tag_image": "/static/images/care_tags/cotton_cold_no_bleach_low.png",
+      "choices": [
+        { "id": "A", "text": "Wash in hot water" },
+        { "id": "B", "text": "Wash in cold water" },
+        { "id": "C", "text": "Use bleach" },
+        { "id": "D", "text": "Dry clean" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Cold water helps prevent color fading",
+        "incorrect": "Cold water is best for preserving dyed cotton"
+      },
+      "next_id": 2
+    },
+    {
+      "id": 2,
+      "category": "cotton",
+      "question": "A care label allows tumble dry with one dot. How should you dry this cotton item",
+      "care_tag_image": "/static/images/care_tags/dryer_one_dot.png",
+      "choices": [
+        { "id": "A", "text": "High heat drying" },
+        { "id": "B", "text": "Low heat drying" },
+        { "id": "C", "text": "Do not dry" },
+        { "id": "D", "text": "Air dry only" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "One dot means low heat",
+        "incorrect": "Low heat is required when one dot is shown"
+      },
+      "next_id": 3
+    },
+    {
+      "id": 3,
+      "category": "cotton",
+      "question": "A cotton towel label shows three dots in the tub symbol. What does this mean",
+      "care_tag_image": "/static/images/care_tags/tub_three_dots.png",
+      "choices": [
+        { "id": "A", "text": "Cold wash" },
+        { "id": "B", "text": "Warm wash" },
+        { "id": "C", "text": "Hot wash" },
+        { "id": "D", "text": "Do not wash" }
+      ],
+      "correct_answer": "C",
+      "feedback": {
+        "correct": "Three dots indicate hot water",
+        "incorrect": "Dots increase from cold to hot temperature"
+      },
+      "next_id": 4
+    },
+    {
+      "id": 4,
+      "category": "cotton",
+      "question": "A care label shows no bleach. What should you avoid",
+      "care_tag_image": "/static/images/care_tags/no_bleach.png",
+      "choices": [
+        { "id": "A", "text": "Cold water" },
+        { "id": "B", "text": "Bleach products" },
+        { "id": "C", "text": "Low heat drying" },
+        { "id": "D", "text": "Washing" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "No bleach means avoid all bleaching agents",
+        "incorrect": "Bleach must not be used when the symbol is crossed"
+      },
+      "next_id": 5
+    },
+    {
+      "id": 5,
+      "category": "wool",
+      "question": "A wool sweater shows a hand wash symbol. What should you do",
+      "care_tag_image": "/static/images/care_tags/hand_wash.png",
+      "choices": [
+        { "id": "A", "text": "Machine wash normally" },
+        { "id": "B", "text": "Hand wash gently" },
+        { "id": "C", "text": "Wash in hot water" },
+        { "id": "D", "text": "Tumble dry high" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Hand washing protects wool fibers",
+        "incorrect": "Machine washing can damage wool"
+      },
+      "next_id": 6
+    },
+    {
+      "id": 6,
+      "category": "wool",
+      "question": "A wool garment label shows lay flat drying. Why is this important",
+      "care_tag_image": "/static/images/care_tags/lay_flat.png",
+      "choices": [
+        { "id": "A", "text": "It dries faster" },
+        { "id": "B", "text": "It prevents stretching" },
+        { "id": "C", "text": "It adds heat" },
+        { "id": "D", "text": "It removes stains" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Laying flat keeps wool from stretching",
+        "incorrect": "Hanging wool can distort its shape"
+      },
+      "next_id": 7
+    },
+    {
+      "id": 7,
+      "category": "wool",
+      "question": "A wool item shows do not tumble dry. What should you do instead",
+      "care_tag_image": "/static/images/care_tags/no_tumble.png",
+      "choices": [
+        { "id": "A", "text": "Use low heat dryer" },
+        { "id": "B", "text": "Air dry" },
+        { "id": "C", "text": "Use high heat quickly" },
+        { "id": "D", "text": "Steam dry" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Air drying protects wool structure",
+        "incorrect": "Dryers can shrink or damage wool"
+      },
+      "next_id": 8
+    },
+    {
+      "id": 8,
+      "category": "wool",
+      "question": "A label shows cold wash for wool. Why is this recommended",
+      "care_tag_image": "/static/images/care_tags/tub_one_dot.png",
+      "choices": [
+        { "id": "A", "text": "Cold cleans better" },
+        { "id": "B", "text": "Cold prevents shrinking" },
+        { "id": "C", "text": "Cold dries faster" },
+        { "id": "D", "text": "Cold removes wrinkles" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Cold water helps prevent wool shrinkage",
+        "incorrect": "Heat can shrink wool fibers"
+      },
+      "next_id": 9
+    },
+    {
+      "id": 9,
+      "category": "synthetics",
+      "question": "A synthetic shirt label shows cold wash and no bleach. What should you do",
+      "care_tag_image": "/static/images/care_tags/synthetic_cold_no_bleach.png",
+      "choices": [
+        { "id": "A", "text": "Hot wash with bleach" },
+        { "id": "B", "text": "Cold wash without bleach" },
+        { "id": "C", "text": "Warm wash with bleach" },
+        { "id": "D", "text": "Dry clean only" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Cold wash protects synthetic fibers",
+        "incorrect": "Heat and bleach damage synthetics"
+      },
+      "next_id": 10
+    },
+    {
+      "id": 10,
+      "category": "synthetics",
+      "question": "A label shows low heat drying for synthetics. Why is this important",
+      "care_tag_image": "/static/images/care_tags/dryer_one_dot.png",
+      "choices": [
+        { "id": "A", "text": "It cleans better" },
+        { "id": "B", "text": "It prevents melting" },
+        { "id": "C", "text": "It softens fabric" },
+        { "id": "D", "text": "It adds moisture" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "High heat can melt synthetic fibers",
+        "incorrect": "Low heat protects synthetic materials"
+      },
+      "next_id": 11
+    },
+    {
+      "id": 11,
+      "category": "synthetics",
+      "question": "A care label shows do not tumble dry. What should you do",
+      "care_tag_image": "/static/images/care_tags/no_tumble.png",
+      "choices": [
+        { "id": "A", "text": "Dry on low heat" },
+        { "id": "B", "text": "Air dry" },
+        { "id": "C", "text": "Dry on high heat" },
+        { "id": "D", "text": "Ignore the label" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Air drying avoids damage",
+        "incorrect": "Tumble drying is not allowed"
+      },
+      "next_id": 12
+    },
+    {
+      "id": 12,
+      "category": "synthetics",
+      "question": "A care label allows warm wash. When should you use it",
+      "care_tag_image": "/static/images/care_tags/tub_two_dots.png",
+      "choices": [
+        { "id": "A", "text": "For all clothing" },
+        { "id": "B", "text": "For moderately dirty items" },
+        { "id": "C", "text": "For delicate fabrics" },
+        { "id": "D", "text": "Never use warm water" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Warm wash is suitable for moderate dirt",
+        "incorrect": "Warm is a middle option between cold and hot"
+      },
+      "next_id": 13
+    },
+    {
+      "id": 13,
+      "category": "delicates",
+      "question": "A silk blouse label shows dry clean only. What should you do",
+      "care_tag_image": "/static/images/care_tags/dry_clean_only.png",
+      "choices": [
+        { "id": "A", "text": "Hand wash" },
+        { "id": "B", "text": "Machine wash" },
+        { "id": "C", "text": "Take to dry cleaner" },
+        { "id": "D", "text": "Air dry only" }
+      ],
+      "correct_answer": "C",
+      "feedback": {
+        "correct": "Dry clean only means no water washing",
+        "incorrect": "The label must be followed exactly"
+      },
+      "next_id": 14
+    },
+    {
+      "id": 14,
+      "category": "delicates",
+      "question": "A delicate item shows hand wash and no heat drying. What should you do",
+      "care_tag_image": "/static/images/care_tags/delicate_no_heat.png",
+      "choices": [
+        { "id": "A", "text": "Hand wash and air dry" },
+        { "id": "B", "text": "Hot wash and dry" },
+        { "id": "C", "text": "Machine wash heavy" },
+        { "id": "D", "text": "Use bleach" }
+      ],
+      "correct_answer": "A",
+      "feedback": {
+        "correct": "Delicates require gentle care and no heat",
+        "incorrect": "Heat damages delicate fabrics"
+      },
+      "next_id": 15
+    },
+    {
+      "id": 15,
+      "category": "delicates",
+      "question": "A label shows lay flat drying for lace. Why should you follow this",
+      "care_tag_image": "/static/images/care_tags/lay_flat.png",
+      "choices": [
+        { "id": "A", "text": "To dry faster" },
+        { "id": "B", "text": "To prevent stretching and damage" },
+        { "id": "C", "text": "To add heat" },
+        { "id": "D", "text": "To clean better" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Flat drying preserves shape",
+        "incorrect": "Hanging can stretch delicate fabrics"
+      },
+      "next_id": 16
+    },
+    {
+      "id": 16,
+      "category": "delicates",
+      "question": "A label shows no bleach for silk. What should you avoid",
+      "care_tag_image": "/static/images/care_tags/no_bleach.png",
+      "choices": [
+        { "id": "A", "text": "Cold water" },
+        { "id": "B", "text": "Bleach products" },
+        { "id": "C", "text": "Air drying" },
+        { "id": "D", "text": "Hand washing" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Bleach damages delicate fibers",
+        "incorrect": "No bleach must be strictly followed"
+      },
+      "next_id": 17
+    },
+    {
+      "id": 17,
+      "category": "delicates",
+      "question": "A care label shows do not wash. What is the correct action",
+      "care_tag_image": "/static/images/care_tags/no_wash.png",
+      "choices": [
+        { "id": "A", "text": "Machine wash cold" },
+        { "id": "B", "text": "Hand wash only" },
+        { "id": "C", "text": "Avoid washing with water" },
+        { "id": "D", "text": "Use warm water" }
+      ],
+      "correct_answer": "C",
+      "feedback": {
+        "correct": "Do not wash means no water cleaning",
+        "incorrect": "This item must not be washed"
+      },
+      "next_id": 18
+    },
+    {
+      "id": 18,
+      "category": "cotton",
+      "question": "A cotton item shows medium heat drying. What should you do",
+      "care_tag_image": "/static/images/care_tags/dryer_two_dots.png",
+      "choices": [
+        { "id": "A", "text": "Use medium heat dryer" },
+        { "id": "B", "text": "Use high heat" },
+        { "id": "C", "text": "Do not dry" },
+        { "id": "D", "text": "Only air dry" }
+      ],
+      "correct_answer": "A",
+      "feedback": {
+        "correct": "Two dots indicate medium heat",
+        "incorrect": "Follow the dot system for heat level"
+      },
+      "next_id": 19
+    },
+    {
+      "id": 19,
+      "category": "synthetics",
+      "question": "A synthetic label shows cold wash and low heat dry. Why follow both",
+      "care_tag_image": "/static/images/care_tags/cold_low_combo.png",
+      "choices": [
+        { "id": "A", "text": "To clean faster" },
+        { "id": "B", "text": "To prevent fiber damage" },
+        { "id": "C", "text": "To shrink fabric" },
+        { "id": "D", "text": "To add softness" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Heat damages synthetic fibers",
+        "incorrect": "Both settings protect the material"
+      },
+      "next_id": 20
+    },
+    {
+      "id": 20,
+      "category": "general",
+      "question": "What is the most important rule when reading a care label",
+      "care_tag_image": null,
+      "choices": [
+        { "id": "A", "text": "Always use hot water" },
+        { "id": "B", "text": "Follow the symbols exactly" },
+        { "id": "C", "text": "Ignore unclear instructions" },
+        { "id": "D", "text": "Wash everything together" }
+      ],
+      "correct_answer": "B",
+      "feedback": {
+        "correct": "Care labels give the correct instructions",
+        "incorrect": "Always follow the care label"
+      },
+      "next_id": null
+    }
+  ]
+}
