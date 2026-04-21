@@ -1,0 +1,370 @@
+[
+  {
+    "event_type": "learn_visit",
+    "gituser": "sw3735",
+    "details": {
+      "page_id": 1
+    },
+    "timestamp_utc": "2026-04-21T02:19:38.242179+00:00"
+  },
+  {
+    "event_type": "learn_visit",
+    "gituser": "sw3735",
+    "details": {
+      "page_id": 1
+    },
+    "timestamp_utc": "2026-04-21T02:19:42.009931+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 1,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:21:21.919607+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 2,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:26.844167+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 3,
+      "selected_choice": "C",
+      "correct_answer": "C",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:29.219897+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 4,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:31.977973+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 5,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:21:36.458050+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 6,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:38.342552+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 7,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:39.801473+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 8,
+      "selected_choice": "D",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:21:41.468327+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 9,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:43.469285+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 10,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:21:45.472789+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 11,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:21:47.926474+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 12,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:21:50.336704+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 12,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:22:30.874578+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 13,
+      "selected_choice": "A",
+      "correct_answer": "C",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:22:38.385566+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 14,
+      "selected_choice": "D",
+      "correct_answer": "A",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:22:40.300710+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 15,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:23:56.161871+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 16,
+      "selected_choice": "D",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:24:11.297211+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 17,
+      "selected_choice": "B",
+      "correct_answer": "C",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:24:13.345705+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 18,
+      "selected_choice": "A",
+      "correct_answer": "A",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:24:15.437137+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 19,
+      "selected_choice": "C",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:24:17.315622+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 20,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:24:19.038720+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 1,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:25:43.322556+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 2,
+      "selected_choice": "C",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:25:45.517860+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 3,
+      "selected_choice": "D",
+      "correct_answer": "C",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:25:47.413493+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 4,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:25:49.428472+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 5,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:27:49.948842+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 6,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:27:52.635520+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 7,
+      "selected_choice": "D",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:27:55.382384+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 8,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:28:32.531978+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 9,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:28:35.397066+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 1,
+      "selected_choice": "B",
+      "correct_answer": "B",
+      "is_correct": true
+    },
+    "timestamp_utc": "2026-04-21T02:32:52.877420+00:00"
+  },
+  {
+    "event_type": "quiz_answer",
+    "gituser": "sw3735",
+    "details": {
+      "question_id": 2,
+      "selected_choice": "A",
+      "correct_answer": "B",
+      "is_correct": false
+    },
+    "timestamp_utc": "2026-04-21T02:32:54.343100+00:00"
+  }
+]

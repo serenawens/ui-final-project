@@ -1,3 +1,82 @@
+body {
+  background: #eef2f5;
+  color: #1f3f42;
+}
+
+.app-topbar {
+  background: #0d6f75;
+}
+
+.btn-primary {
+  background-color: #0f8f96;
+  border-color: #0f8f96;
+}
+
+.btn-primary:hover {
+  background-color: #0c7c82;
+  border-color: #0c7c82;
+}
+
+.care-card {
+  max-width: 460px;
+  background: #fff9df;
+  border: 1px solid #f3d86f;
+}
+
+#careTagImage {
+  max-height: 140px;
+  object-fit: contain;
+}
+
+.choice-btn {
+  border: 1px solid #cfd8df;
+  background: #ffffff;
+  color: #274449;
+  border-radius: 12px;
+}
+
+.choice-btn:hover {
+  border-color: #0f8f96;
+  background: #f4fbfb;
+}
+
+.choice-btn.choice-selected,
+.choice-btn.choice-selected:hover {
+  border-color: #0f8f96;
+  background: #dff5f6;
+  box-shadow: inset 0 0 0 1px #0f8f96;
+}
+
+.progress-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background: #d4d9df;
+}
+
+.progress-dot.dot-active {
+  background: #0ea5ad;
+}
+
+.progress-dot.dot-complete {
+  background: #7d8893;
+}
+
+#feedbackPanel {
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.score-card {
+  max-width: 360px;
+  background: white;
+  border: 1px solid #0ea5ad;
+  border-radius: 16px;
+  padding: 1rem;
+}
 :root {
   --teal:        #007B83;
   --teal-dark:   #005F65;
