@@ -9,6 +9,14 @@
   data-material-id="{{ category.id }}"
   data-material-name="{{ category.name }}"
 >
+  {% set fabric_image_map = {
+    'cotton': 'images/fabric/cotton.png',
+    'wool': 'images/fabric/wool.png',
+    'synthetics': 'images/fabric/synthetic.png',
+    'delicates': 'images/fabric/Silk.png'
+  } %}
+  {% set fabric_image = fabric_image_map.get(category.id, 'images/fabric/cotton.png') %}
+
   <div class="text-center mb-4">
     <p class="material-chip">{{ category.emoji }} {{ category.name }} Learning</p>
     <h1 class="display-6 fw-bold mb-2">{{ category.name }} Care Guide</h1>
@@ -25,8 +33,8 @@
         <p>We will cover care labels, washer settings, dryer guidance, and mistakes to avoid.</p>
         <img
           class="slide-image"
-          src="https://placehold.co/900x360?text={{ category.name }}+Overview"
-          alt="{{ category.name }} overview placeholder"
+          src="{{ url_for('static', filename=fabric_image) }}"
+          alt="{{ category.name }} overview"
         />
       </div>
     </article>
@@ -143,8 +151,8 @@
           <p class="text-secondary">One more glance at symbols before the quiz.</p>
           <img
             class="slide-image"
-            src="https://placehold.co/900x300?text=Care+Label+Refresher"
-            alt="Care label refresher placeholder"
+            src="{{ url_for('static', filename=fabric_image) }}"
+            alt="{{ category.name }} refresher"
           />
           <a href="{{ url_for('quiz_home') }}" class="btn btn-success btn-lg mt-3">Go To Quiz</a>
         </div>

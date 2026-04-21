@@ -1044,6 +1044,8 @@ a { text-decoration: none; color: inherit; }
 
 .slide-image {
   width: 100%;
+  height: clamp(220px, 34vw, 320px);
+  object-fit: cover;
   border-radius: 12px;
   border: 1px solid #dde5e8;
   margin-top: 0.8rem;
