@@ -1,18 +1,22 @@
 {% extends "quiz_layout.html" %}
 
 {% block content %}
-<section class="text-center py-5">
+<section class="quiz-home text-center py-5">
+  <p class="quiz-home-kicker mb-2">Knowledge Check</p>
+  <div class="quiz-home-divider mx-auto mb-4"></div>
   <h1 class="display-5 fw-bold mb-3">Let's Test What You Learned!</h1>
   {% if selected_material %}
   <p class="lead text-secondary mb-2">You completed {{ selected_material.name }}. Start your quiz when ready.</p>
   {% endif %}
-  <p class="lead text-secondary mb-4">Ready to test your knowledge?</p>
+  <p class="lead text-secondary mb-5">Ready to test your knowledge?</p>
 
   <div class="row justify-content-center">
-    <div class="col-md-6 col-lg-5">
+    <div class="col-md-8 col-lg-7">
       <div class="d-grid">
         <a id="startQuizBtn" class="btn btn-success btn-lg" href="/quiz/question/1">Start Quiz</a>
       </div>
+      <div class="quiz-home-track mt-4" id="quizHomeTrack"></div>
+      <p class="quiz-home-progress mt-3 mb-0" id="quizHomeProgressText">0 of 20 questions answered</p>
     </div>
   </div>
 </section>

@@ -2,10 +2,10 @@
 
 {% block content %}
 <section class="quiz-shell" data-page-type="quiz" data-question-id="{{ question_id }}">
-  <div class="text-center mb-4">
+  <div class="text-center mb-4 quiz-question-header">
     <p class="text-muted fw-semibold mb-2" id="quizProgressText">Quiz</p>
     <div id="progressDots" class="mb-3"></div>
-    <h2 class="fw-bold" id="questionText">Loading question...</h2>
+    <h2 class="fw-bold mb-0" id="questionText">Loading question...</h2>
   </div>
 
   <div class="card mx-auto mb-4 care-card" id="careTagCard">
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div id="choicesContainer" class="row g-3"></div>
+  <div id="choicesContainer" class="row g-3 quiz-choice-grid"></div>
 
   <div id="feedbackPanel" class="card mt-4 d-none">
     <div class="card-body text-center">
