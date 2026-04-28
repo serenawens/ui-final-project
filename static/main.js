@@ -232,6 +232,29 @@
   function attachQuizHomeHandlers() {
     const existingUni = getUni();
 
+    function renderQuizHomeProgress() {
+      const score = getScoreState();
+      $.getJSON("/api/quiz/1")
+        .done(function (payload) {
+          const total = Number(payload.total_questions) || 20;
+          const answered = Math.min(Number(score.total) || 0, total);
+
+          let trackHtml = "";
+          for (let i = 1; i <= total; i += 1) {
+            const completeClass = i <= answered ? "is-complete" : "";
+            trackHtml += '<span class="quiz-home-segment ' + completeClass + '"></span>';
+          }
+
+          $("#quizHomeTrack").html(trackHtml);
+          $("#quizHomeProgressText").text(answered + " of " + total + " questions answered");
+        })
+        .fail(function () {
+          $("#quizHomeProgressText").text((Number(score.total) || 0) + " questions answered");
+        });
+    }
+
+    renderQuizHomeProgress();
+
     $("#startQuizBtn").on("click", function (e) {
       const uni = existingUni;
       if (!uni) {
@@ -266,9 +289,11 @@
             '<button class="btn choice-btn w-100 text-start p-3" data-choice-id="' +
             choice.id +
             '">' +
+            '<span class="choice-label">' +
             choice.id +
             ") " +
             choice.text +
+            "</span>" +
             "</button>" +
             "</div>";
         });
@@ -316,6 +341,10 @@
           .html(isCorrect ? "&#10003; Correct!" : "&#10007; Wrong");
         $("#feedbackText").text(feedbackText);
         $("#nextQuestionBtn").data("next-id", resp.next_id);
+        const feedbackPanelEl = document.getElementById("feedbackPanel");
+        if (feedbackPanelEl) {
+          feedbackPanelEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
 
         $("#nextQuestionBtn")
           .off("click")
