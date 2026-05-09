@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block body_class %}quiz-theme{% endblock %}
+
 {% block title %}Learn {{ category.name }} - Laundry Care Coach{% endblock %}
 
 {% block content %}
@@ -9,6 +11,7 @@
   data-material-id="{{ category.id }}"
   data-material-name="{{ category.name }}"
 >
+ 
   {% set fabric_image_map = {
     'cotton': 'images/fabric/cotton.png',
     'wool': 'images/fabric/wool.png',
@@ -44,9 +47,39 @@
         <h2 id="careLabelHeading">How to Read a Care Label</h2>
         <p>Learn the symbols before choosing washer or dryer settings.</p>
         <div class="symbols-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
+          {% set image_map = {
+            'washing': [
+              'images/care_tags/tub_two_dot.png',
+              'images/care_tags/tub_three_dot.png'
+            ],
+            'bleaching': [
+              'images/care_tags/no_bleach2.png'
+            ],
+            'drying': [
+              'images/care_tags/dryer_one_dots.png',
+              'images/care_tags/no_tumble2.png'
+            ],
+            'ironing': [
+              'images/care_tags/iron.png',
+              'images/care_tags/no_iron.png'
+            ],
+            'dry_clean': [
+              'images/care_tags/dry_clean_only2.png'
+            ]
+          } %}
+
           {% for symbol in care_symbols %}
           <div class="symbol-card">
-            <div class="sym-icon-wrap">{{ symbol.emoji }}</div>
+            <div class="sym-icon-wrap">
+              {% set imgs = image_map.get(symbol.id, []) %}
+              {% if imgs and imgs|length > 0 %}
+                {% for p in imgs %}
+                  <img src="{{ url_for('static', filename=p) }}" alt="{{ symbol.id }} symbol" class="care-tag-img" />
+                {% endfor %}
+              {% else %}
+                {{ symbol.emoji }}
+              {% endif %}
+            </div>
             <h4 class="sym-name">{{ symbol.id|replace('_', ' ')|title }}</h4>
             <ul class="sym-lines">
               {% for rule in symbol.rules %}
@@ -147,13 +180,53 @@
         </div>
 
         <div id="finalQuizPanel" class="d-none mt-4">
-          <h3 class="fw-bold">Final Refresher: Care Labels</h3>
-          <p class="text-secondary">One more glance at symbols before the quiz.</p>
-          <img
-            class="slide-image"
-            src="{{ url_for('static', filename=fabric_image) }}"
-            alt="{{ category.name }} refresher"
-          />
+          <h3 class="fw-bold">Let's do a quick review on what these mean</h3>
+          <p class="text-secondary">Learn the symbols before choosing washer or dryer settings.</p>
+
+          <div id="finalRefresherCards" class="symbols-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1rem;">
+            {% set final_image_map = {
+              'washing': [
+                'images/care_tags/tub_two_dot.png',
+                'images/care_tags/tub_three_dot.png'
+              ],
+              'bleaching': [
+                'images/care_tags/no_bleach2.png'
+              ],
+              'drying': [
+                'images/care_tags/dryer_one_dots.png',
+                'images/care_tags/no_tumble2.png'
+              ],
+              'ironing': [
+                'images/care_tags/iron.png',
+                'images/care_tags/no_iron.png'
+              ],
+              'dry_clean': [
+                'images/care_tags/dry_clean_only2.png'
+              ]
+            } %}
+
+            {% for symbol in care_symbols %}
+            <div class="symbol-card">
+              <div class="sym-icon-wrap">
+                {% set imgs = final_image_map.get(symbol.id, []) %}
+                {% if imgs and imgs|length > 0 %}
+                  {% for p in imgs %}
+                    <img src="{{ url_for('static', filename=p) }}" alt="{{ symbol.id }} symbol" class="care-tag-img" />
+                  {% endfor %}
+                {% else %}
+                  {{ symbol.emoji }}
+                {% endif %}
+              </div>
+              <h4 class="sym-name">{{ symbol.id|replace('_', ' ')|title }}</h4>
+              <ul class="sym-lines">
+                {% for rule in symbol.rules %}
+                <li>{{ rule }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+
           <a href="{{ url_for('quiz_home') }}" class="btn btn-success btn-lg mt-3">Go To Quiz</a>
         </div>
       </div>

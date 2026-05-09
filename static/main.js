@@ -128,6 +128,19 @@
       material_id: materialId,
     });
 
+    function ensureFinalRefresherCards() {
+      // Safety: if an old template still has the legacy image, remove it and ensure cards are present.
+      $("#finalQuizPanel .slide-image").remove();
+
+      const finalCards = $("#finalRefresherCards");
+      if (!finalCards.length) return;
+      if (finalCards.children().length > 0) return;
+
+      const sourceCards = $(".learn-slide[data-step-id='care-label'] .symbol-card");
+      if (!sourceCards.length) return;
+      finalCards.append(sourceCards.clone());
+    }
+
     function updateNextMaterialPanel() {
       const visited = getVisitedMaterials();
       let remainingCount = 0;
@@ -152,6 +165,7 @@
         $("#nextMaterialSubtitle").text("You can review any material again, or proceed to the quiz.");
         $("#nextMaterialGrid").removeClass("d-none");
         $("#finalQuizPanel").removeClass("d-none");
+        ensureFinalRefresherCards();
       } else {
         $("#nextMaterialTitle").text("Choose the Next Material");
         $("#nextMaterialSubtitle").text("Keep going until you finish every material.");
@@ -164,7 +178,12 @@
       slides.removeClass("is-active").eq(activeIndex).addClass("is-active");
       const progress = ((activeIndex + 1) / slides.length) * 100;
       $("#learnProgressBar").css("width", progress + "%");
-      $("#learnPrevBtn").prop("disabled", activeIndex === 0);
+      // If we're on the first slide, make the Prev button act as a 'back to previous page' control.
+      if (activeIndex === 0) {
+        $("#learnPrevBtn").prop("disabled", false).data("home-back", true);
+      } else {
+        $("#learnPrevBtn").prop("disabled", false).data("home-back", false);
+      }
 
       const isLast = activeIndex === slides.length - 1;
       $("#learnNextBtn").toggle(!isLast);
@@ -193,6 +212,17 @@
     }
 
     $("#learnPrevBtn").on("click", function () {
+      const isHomeBack = $(this).data("home-back");
+      if (isHomeBack) {
+        // Try going back in history first; fall back to homepage
+        if (document.referrer && document.referrer !== window.location.href) {
+          window.history.back();
+        } else {
+          window.location.href = "/";
+        }
+        return;
+      }
+
       if (activeIndex > 0) {
         activeIndex -= 1;
         renderSlide();
