@@ -397,6 +397,12 @@
   function renderResults() {
     const score = getScoreState();
     $("#scoreValue").text(score.correct + " / " + score.total);
+
+    $("#restartQuizBtn")
+      .off("click")
+      .on("click", function () {
+        resetScoreState();
+      });
   }
 
   $(function () {

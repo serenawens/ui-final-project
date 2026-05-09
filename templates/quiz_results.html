@@ -10,6 +10,9 @@
     <h3 id="scoreValue" class="display-5 fw-bold mb-0">0 / 0</h3>
   </div>
 
-  <a href="/quiz" class="btn btn-outline-primary btn-lg">Back to Home</a>
+  <div class="d-flex justify-content-center gap-2 flex-wrap">
+    <a href="{{ url_for('home_page') }}" class="btn btn-outline-primary btn-lg">Back to Home</a>
+    <a href="{{ url_for('quiz_page', question_id=1) }}" id="restartQuizBtn" class="btn btn-primary btn-lg">Restart Quiz</a>
+  </div>
 </section>
 {% endblock %}
